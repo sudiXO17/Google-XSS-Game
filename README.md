@@ -7,10 +7,10 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 ## [1/6] Level 1: Hello, World of XSS
 
 1.	Objective: Trigger an alert by injecting JavaScript into the query URL parameter.
- ![challenge1]( challenge/1.png)
+ ![challenge1]( challenges/1.png)
 2.	Code Behavior: 
   a.	The application reflects the query parameter into the page without sanitization:
-  b.	 ![code1](code/1.png)
+  b.	 ![code1](codes/1.png)
 3.	Vulnerability
   a.	Reflected Cross-Site Scripting (XSS):
   b.	User input is placed directly into the DOM using .innerHTML without sanitization or escaping. 
@@ -22,9 +22,9 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 ## [2/6] Level 2: Persistence Is Key
 
 1.	Objective: Exploit stored XSS by injecting JavaScript into a message field that will be saved and later reflected into the page.
- ![challenge2]( challenge/2.png)
+ ![challenge2]( challenges/2.png)
 2.	Code Behavior
-   a.	 ![code2](code/2.png)
+   a.	 ![code2](codes/2.png)
 3.	Vulnerability
   a.	Stored XSS (DOM-based):
   b.	User input is unsafely embedded into the DOM using .innerHTML, allowing script execution.
@@ -34,9 +34,9 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 
 ## [3/6] Level 3: That Sinking Feeling...
 1.	Objective: Trigger XSS by injecting into a JavaScript sink that uses user input to build and insert raw HTML.
- ![challenge3]( challenge/3.png)
+ ![challenge3]( challenges/3.png)
 2.	Code Behavior
-   a.	 ![code3](code/2.png)
+   a.	 ![code3](codes/3.png)
    b.	The app reads input from location.hash and passes it to chooseTab().
   d.	Inside chooseTab(num), your input is used to dynamically build HTML
   e.	This creates a string of HTML with your input directly inserted into an <img> tag’s src attribute using .html() — a dangerous sink.
@@ -52,10 +52,10 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 
 ## [4/6] Level 4: Context Matters
 1.	Objective: Trigger a DOM-based reflected XSS by exploiting how the application uses location.hash to dynamically build an HTML element using jQuery.
- ![challenge4]( challenge/4.png)
+ ![challenge4]( challenges/4.png)
 2.	Code Behavior
-  a.	 ![code4](code/4.1.png)
-  b.	 ![code4](code/4.2.png)
+  a.	 ![code4](codes/4.1.png)
+  b.	 ![code4](codes/4.2.png)
   c.	The app dynamically builds JavaScript using this pattern:
   d.	Your input from the location.search (the part after ?) is directly inserted into a JavaScript string, which is then executed via setTimeout().
 3.	Vulnerability
@@ -69,10 +69,10 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 
 ## [5/6] Level 5: Breaking Protocol
 1.	Objective: Trigger JavaScript execution by injecting a javascript: URI into a link — without using <script> or onclick.
- ![challenge5]( challenge/5.png)
+ ![challenge5]( challenges/5.png)
 2.	Code Behavior: 
-  a.	 ![code5](code/5.1.png)
-  b.	 ![code5](code/5.2.png)
+  a.	 ![code5](codes/5.1.png)
+  b.	 ![code5](codes/5.2.png)
   c.	The application builds a confirmation page based on the next parameter and does this
   d.	Your next value is:
     i.	Embedded directly into the href attribute
