@@ -8,7 +8,7 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 
 1.	Objective: Trigger an alert by injecting JavaScript into the query URL parameter.
  ![challenge1]( challenges/1.png)
-2.	Code Behavior:
+2.	Code Behavior:\
   a.	The application reflects the query parameter into the page without sanitization:
   b.	![code1](codes/1.png)
 4.	Vulnerability
