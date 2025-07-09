@@ -8,14 +8,14 @@ A complete write-up of all six levels of the [Google XSS Game](https://xss-game.
 
 1.	Objective: Trigger an alert by injecting JavaScript into the query URL parameter.
  ![challenge1]( challenges/1.png)
-2.	Code Behavior: 
+2.	Code Behavior:
   a.	The application reflects the query parameter into the page without sanitization:
-  b.	 ![code1](codes/1.png)
-3.	Vulnerability
+  b.	![code1](codes/1.png)
+4.	Vulnerability
   a.	Reflected Cross-Site Scripting (XSS):
   b.	User input is placed directly into the DOM using .innerHTML without sanitization or escaping. 
-4.	Payload: <script>alert(1)</script>
-5.	Exploit URL: https://xss-game.appspot.com/level1/frame?query=<script>alert(1)</script>ipt>
+5.	Payload: <script>alert(1)</script>
+6.	Exploit URL: https://xss-game.appspot.com/level1/frame?query=<script>alert(1)</script>ipt>
 ![result1](result/1.png)
 ---
 
